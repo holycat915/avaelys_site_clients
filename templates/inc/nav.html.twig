@@ -1,0 +1,24 @@
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        {#                <ul class="navbar-nav">#}
+        <nav class="navbar-nav container">
+
+            {% if app.user %}
+                <a class="nav-link" href="{{ path('app_logout')}}">Se déconnecter ({{ app.user.userIdentifier }})</a>
+{#                <a class="nav-link" href="{{ path('sorties_afficher')}}">Sorties</a>#}
+{#                <a class="nav-link" href="{{ path('app_creer_sortie')}}">Créer une sortie</a>#}
+{#                <a class="nav-link" href="{{ path('modifier_user', {'id': app.user.id}) }}">Modifier mon profil</a>#}
+                {% if is_granted ("ROLE_ADMIN") %}
+                    <a class="nav-link" href="{{ path('app_register') }}">Admin</a>
+                {% endif %}
+            {% else %}
+                <a class="nav-link" href="{{ path('app_login') }}">Login<span class="sr-only"></span></a>
+            {% endif %}
+
+            <a class="nav-link" href="{{ path('app_home') }}">Accueil<span class="sr-only"></span></a>
+        </nav>
+
+    </div>
+</nav>
+

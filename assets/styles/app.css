@@ -1,0 +1,9 @@
+@import "custom";
+@import "~bootstrap/scss/bootstrap";
+
+
+body {
+    background-color: red;
+}
+
+.flash-success {background-color: green}

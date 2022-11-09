@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire noms de domaine{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="container">
+        <div class="d-flex justify-content-center p-5">
+            <div class="card col-4">
+                <div class="card-header text-center">Création de nom de domaine</div>
+                <div class="card-body">
+                    {{ form_start(domainNameForm, {'attr': {'class': 'd-flex flex-column'}}) }}
+                    {{ form_row(domainNameForm.name, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}, 'row_attr': {'class': 'mb-3'}}) }}
+                    {{ form_row(domainNameForm.host, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}, 'row_attr': {'class': 'mb-3'}}) }}
+                    {{ form_row(domainNameForm.creationDate, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}, 'row_attr': {'class': 'mb-3'}}) }}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    {{ form_end(domainNameForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

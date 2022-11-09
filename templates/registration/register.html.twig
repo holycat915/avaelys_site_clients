@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+{#    <h1>Register</h1>#}
+
+{#<div class="form-group">#}
+{#    {% form_theme form 'foundation_5_layout.html.twig' %}#}
+{#    {{ form_start(registrationForm) }}#}
+{#        {{ form_widget(registrationForm) }}#}
+{#        {{ form_row(registrationForm.email) }}#}
+
+{#        <button type="submit" class="btn">Register</button>#}
+{#    {{ form_end(registrationForm) }}#}
+
+
+
+
+{#</div>#}
+
+
+    <div class="container">
+        <div class="d-flex justify-content-center p-5">
+            <div class="card col-4">
+                <div class="card-header text-center">Création d'utilisateur</div>
+                <div class="card-body">
+                    {{ form_start(registrationForm, {'attr': {'class': 'd-flex flex-column'}}) }}
+                    {{ form_row(registrationForm.email, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}, 'row_attr': {'class': 'mb-3'}}) }}
+                    {{ form_row(registrationForm.name, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}, 'row_attr': {'class': 'mb-3'}}) }}
+                    {{ form_row(registrationForm.firstname, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}, 'row_attr': {'class': 'mb-3'}}) }}
+                    {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}, 'row_attr': {'class': 'mb-3'}}) }}
+{#                    {{ form_row(registrationForm.password.first, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}, 'row_attr': {'class': 'mb-3'}}) }}#}
+{#                    {{ form_row(registrationForm.password.second, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}, 'row_attr': {'class': 'mb-3'}}) }}#}
+                    <span>Already have an account? <a href="{{ path('app_login') }}">Log in</a></span>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+
