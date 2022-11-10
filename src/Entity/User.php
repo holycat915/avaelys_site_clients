@@ -51,14 +51,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->domainNames = new ArrayCollection();
     }
 
-//    #[ORM\ManyToMany(targetEntity: DomainName::class, inversedBy: 'users')]
-//    private Collection $domainNames;
-//
-//    public function __construct()
-//    {
-//        $this->domainNames = new ArrayCollection();
-//    }
-
 
 
     public function getId(): ?int

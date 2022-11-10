@@ -36,13 +36,6 @@ class DomainName
         $this->users = new ArrayCollection();
     }
 
-//    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'domainName')]
-//    private Collection $users;
-//
-//    public function __construct()
-//    {
-//        $this->users = new ArrayCollection();
-//    }
 
     public function getId(): ?int
     {
@@ -85,32 +78,6 @@ class DomainName
         return $this;
     }
 
-//    /**
-//     * @return Collection<int, User>
-//     */
-//    public function getUsers(): Collection
-//    {
-//        return $this->users;
-//    }
-//
-//    public function addUser(User $user): self
-//    {
-//        if (!$this->users->contains($user)) {
-//            $this->users->add($user);
-//            $user->addDomainName($this);
-//        }
-//
-//        return $this;
-//    }
-//
-//    public function removeUser(User $user): self
-//    {
-//        if ($this->users->removeElement($user)) {
-//            $user->removeDomainName($this);
-//        }
-//
-//        return $this;
-//    }
 
 /**
  * @return Collection<int, User>
