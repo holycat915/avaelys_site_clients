@@ -15,11 +15,11 @@ class DomainNameFormType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label'=>'nom',
+                'label'=>'nom de domaine',
                 'required' => true
             ])
             ->add('host', TextType::class, [
-                'label' => 'hôte',
+                'label' => 'hébergeur',
                 'required' => true
 
             ])
