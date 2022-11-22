@@ -1,24 +1,25 @@
-<!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarNav">
-        {#                <ul class="navbar-nav">#}
-        <nav class="navbar-nav container">
+<!--topbarbar-->
+<div class="topbar">
+    <div class="topbar">
+        <ul class="">
+            <li><a class="topbar left" href="{{ path('app_home') }}">Accueil</a></li>
+            <li><a class="topbar left" href="{{ path('app_project_progress') }}">Projet</a></li>
 
             {% if app.user %}
-                <a class="nav-link" href="{{ path('app_logout')}}">Se déconnecter ({{ app.user.userIdentifier }})</a>
-{#                <a class="nav-link" href="{{ path('sorties_afficher')}}">Sorties</a>#}
-{#                <a class="nav-link" href="{{ path('app_creer_sortie')}}">Créer une sortie</a>#}
-{#                <a class="nav-link" href="{{ path('modifier_user', {'id': app.user.id}) }}">Modifier mon profil</a>#}
+    {#                <li><a class="topbar-link" href="{{ path('sorties_afficher')}}">Sorties</a></li>#}
+    {#                <li><a class="topbar-link" href="{{ path('app_creer_sortie')}}">Créer une sortie</a></li>#}
+    {#                <li><a class="topbar-link" href="{{ path('modifier_user', {'id': app.user.id}) }}">Modifier mon profil</a></li>#}
                 {% if is_granted ("ROLE_ADMIN") %}
-                    <a class="nav-link" href="{{ path('app_register') }}">Admin</a>
+                    <li><a class="topbar left" href="{{ path('app_register') }}">Admin</a></li>
                 {% endif %}
+                <li><a class="topbar right" href="{{ path('app_logout')}}">Se déconnecter ({{ app.user.userIdentifier }})</a></li>
             {% else %}
-                <a class="nav-link" href="{{ path('app_login') }}">Login<span class="sr-only"></span></a>
+                <a class="topbar right" href="{{ path('app_login') }}">Login<span class="sr-only"></span></a>
             {% endif %}
 
-            <a class="nav-link" href="{{ path('app_home') }}">Accueil<span class="sr-only"></span></a>
-        </nav>
+        </ul>
 
     </div>
-</nav>
+
+</div>
 

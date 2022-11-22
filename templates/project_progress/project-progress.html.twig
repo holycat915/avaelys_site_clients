@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ProjectProgress {% endblock %}
+
+
+{% block body %}
+
+    <h1>Informations sur le projet</h1>
+    <div class="main">
+        <!--barre de progression-->
+        <div class="progress">
+            <div class="circle">
+                <span class="label">1</span>
+                <span class="title">Avant-projet</span>
+            </div>
+            <span class="bar"></span>
+
+            <div class="circle">
+                <span class="label">2</span>
+                <span class="title">Conception</span>
+            </div>
+            <span class="bar"></span>
+
+            <div class="circle">
+                <span class="label">3</span>
+                <span class="title">Finalisation</span>
+            </div>
+
+            <span class="bar"></span>
+            <div class="circle">
+                <span class="label">4</span>
+                <span class="title">Mise en ligne</span>
+            </div>
+        </div>
+
+        <!--informations sur le projet-->
+        <div class="project">
+            <div class="infos">
+                <br>
+                <div><span class="title2">Nom du projet : </span>test</div>
+                <br>
+                <div class="title2"><h3>Date de création :</h3></div>
+                <br>
+                <div class="title2"><h3>Hébergeur :</h3></div>
+                <br>
+                <div class="title2"><h3>Étape du projet :</h3></div>
+                <br>
+                <input type="button" value="Changer l'étape" class="change">
+            </div>
+
+            <div class="infos">
+                <h2>Liste des intervenants</h2>
+                <br>
+                <div class="title2"><h3>Intervenant n°1</h3></div>
+                <ul >
+                    <li class="title2">Nom :</li>
+                    <li class="title2">Prénom :</li>
+                    <li class="title2">Fonction :</li>
+                    <li class="title2">Téléphone :</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
