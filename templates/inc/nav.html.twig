@@ -11,6 +11,8 @@
     {#                <li><a class="topbar-link" href="{{ path('modifier_user', {'id': app.user.id}) }}">Modifier mon profil</a></li>#}
                 {% if is_granted ("ROLE_ADMIN") %}
                     <li><a class="topbar left" href="{{ path('app_register') }}">Admin</a></li>
+                    <li><a class="topbar left" href="{{ path('app_domain_name') }}">Création de domaine</a></li>
+
                 {% endif %}
                 <li><a class="topbar right" href="{{ path('app_logout')}}">Se déconnecter ({{ app.user.userIdentifier }})</a></li>
             {% else %}

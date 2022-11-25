@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\DomainName;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -53,6 +54,25 @@ class DomainNameRepository extends ServiceEntityRepository
 //            ->getResult()
 //        ;
 //    }
+
+    /**
+    //     * @return DomainName[] Returns an array of DomainName objects
+    //     */
+    public function findByUser(int $id): array
+    {
+
+
+        return $this->createQueryBuilder('d')
+//            ->andWhere('d.exampleField = :val')
+            ->innerJoin('d.users', 'user')
+            ->andWhere('user.id = :val')
+            ->setParameter('val', $id)
+            ->orderBy('d.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
 //    public function findOneBySomeField($value): ?DomainName
 //    {

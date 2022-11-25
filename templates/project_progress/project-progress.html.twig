@@ -5,63 +5,132 @@
 
 {% block body %}
 
-    <h1>Informations sur le projet</h1>
-    <div class="main">
-        <!--barre de progression-->
-        <div class="progress">
-            <div class="circle">
-                <span class="label">1</span>
-                <span class="title">Avant-projet</span>
-            </div>
-            <span class="bar"></span>
+<h1>Informations sur le projet</h1>
+<div class="main">
+    <!--barre de progression-->
+    <div class="progress">
+        <div class="circle">
+            <span class="label">1</span>
+            <span class="title">Avant-projet</span>
+        </div>
+        <span class="bar"></span>
 
-            <div class="circle">
-                <span class="label">2</span>
-                <span class="title">Conception</span>
-            </div>
-            <span class="bar"></span>
+        <div class="circle">
+            <span class="label">2</span>
+            <span class="title">Conception</span>
+        </div>
+        <span class="bar"></span>
 
-            <div class="circle">
-                <span class="label">3</span>
-                <span class="title">Finalisation</span>
-            </div>
-
-            <span class="bar"></span>
-            <div class="circle">
-                <span class="label">4</span>
-                <span class="title">Mise en ligne</span>
-            </div>
+        <div class="circle">
+            <span class="label">3</span>
+            <span class="title">Finalisation</span>
         </div>
 
-        <!--informations sur le projet-->
-        <div class="project">
-            <div class="infos">
+        <span class="bar"></span>
+        <div class="circle">
+            <span class="label">4</span>
+            <span class="title">Mise en ligne</span>
+        </div>
+    </div>
+
+    <!--informations sur le projet-->
+    <div class="project">
+        <div class="infos form1">
+            <br>
+            <div class="container card col-12">
+                <div class="card-body">
+
+                    <div>
+{#                        <span class="title2">Nom du projet : </span>#}
+                        <label for="projects-select" class="title2">Nom du projet : </label>
+
+                        <form action="">
+
+
+                        </form>
+                        <select class="projects-infos form-control2" name="projects-select" id="projects-select" >
+                            {% for d in domainNamesList %}
+                                <option id="select{{ d.id }}" value="{{ d.id }}" class="projects-select form-label card-header text-center">{{ d.id }} - {{ d.name }}</option>
+                            {% endfor %}
+
+                        </select>
+
+
+
+                    </div>
+                    <script>
+                        var e = document.getElementById("projects-select");
+                        var value = e.value;
+                        var text = e.options[e.selectedIndex].value;
+                        console.log(text);
+                        e.addEventListener("onChange", function(){
+                            console.log(text);
+                        })
+
+
+
+
+
+
+                        var UserOption  = document.getElementById('projects-select').value;
+                        // console.log(options[UserOption-1]);
+                        console.log(UserOption);
+
+                    </script>
+
+
+                </div>
+                <section>
+                    {#                    {{ app.user.email }}#}
+                    {#                    {{ domainNames .name }}#}
+
+
+{#                        {% for d in domainNamesList %}#}
+{#                            <div>{{ d.name }} </div>#}
+{#                        {% endfor %}#}
+{#                        <br>#}
+
+
+                </section>
                 <br>
-                <div><span class="title2">Nom du projet : </span>test</div>
+{#                {% for d in domainNamesList %}#}
+{#                    {% if d.id == domainList[{{ loop.index }}] %}#}
+{#                {% endfor %}#}
+                <div><span class="title2">Date de création : </span>{{ domainNamesList[1].creationDate |date ('d-m-Y')}}</div>
+                <div><span class="title2">Hébergeur : </span>{{ domainNamesList[1].host }}</div>
+
                 <br>
-                <div class="title2"><h3>Date de création :</h3></div>
+                <div class="title2">Hébergeur :</div>
                 <br>
-                <div class="title2"><h3>Hébergeur :</h3></div>
+                <div class="title2">Étape du projet :</div>
                 <br>
-                <div class="title2"><h3>Étape du projet :</h3></div>
-                <br>
-                <input type="button" value="Changer l'étape" class="change">
+                <input type="button" value="Changer l'étape" class="change btn-big btn-primary">
+
+
+
             </div>
 
-            <div class="infos">
-                <h2>Liste des intervenants</h2>
-                <br>
-                <div class="title2"><h3>Intervenant n°1</h3></div>
-                <ul >
-                    <li class="title2">Nom :</li>
-                    <li class="title2">Prénom :</li>
-                    <li class="title2">Fonction :</li>
-                    <li class="title2">Téléphone :</li>
-                </ul>
+        </div>
 
-            </div>
+        <div class="infos">
+            <h2>Liste des intervenants</h2>
+            <br>
+            <div class="title2"><h3>Intervenant n°1</h3></div>
+
+            <div><span class="title2">Nom : </span>{{ domainNamesList[1].id }}</div>
+            <div><span class="title2">Prénom : </span>{{ domainNamesList[1].host }}</div>
+
+
+            <ul >
+                <li class="title2">Nom :</li>
+                <li class="title2">Prénom :</li>
+                <li class="title2">Fonction :</li>
+                <li class="title2">Téléphone :</li>
+            </ul>
 
         </div>
 
     </div>
+
+</div>
 {% endblock %}
