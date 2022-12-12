@@ -30,12 +30,21 @@
                 <label for="inputPassword">Password</label>
                 <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Remember me
+                    </label>
+                </div>
+
+
+
                 <input type="hidden" name="_csrf_token"
                        value="{{ csrf_token('authenticate') }}"
                 >
                 <button class="btn btn-lg btn-primary" type="submit">
                     Sign in
                 </button>
+
 {#                {{ form_start(registrationForm, {'attr': {'class': 'd-flex flex-column'}}) }}#}
 {#                {{ form_row(registrationForm.email, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}, 'row_attr': {'class': 'mb-3'}}) }}#}
 {#                {{ form_row(registrationForm.name, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}, 'row_attr': {'class': 'mb-3'}}) }}#}
@@ -62,16 +71,9 @@
 {#           value="{{ csrf_token('authenticate') }}"#}
 {#    >#}
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
 
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
+
+
 
 {#    <button class="btn btn-lg btn-primary" type="submit">#}
 {#        Sign in#}

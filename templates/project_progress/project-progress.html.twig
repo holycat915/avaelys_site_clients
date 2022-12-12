@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('project-progress') }}
+{% endblock %}
+
 {% block title %}ProjectProgress {% endblock %}
 
 
@@ -33,48 +38,68 @@
         </div>
     </div>
 
+
+
+
+
+
+
     <!--informations sur le projet-->
     <div class="project">
-        <div class="infos form1">
+        <div class="infos row">
             <br>
-            <div class="container card col-12">
-                <div class="card-body">
-
+            <div class="container card col-12 p-3">
+                <div>
                     <div>
 {#                        <span class="title2">Nom du projet : </span>#}
-                        <label for="projects-select" class="title2">Nom du projet : </label>
+                        <label for="projects-select" class="title2 form-label">Nom du projet : </label>
 
                         <form action="">
+                            <select class="projects-infos form-control2" name="projects-select" id="projects-select" >
+{#                                {% for d in domainNamesList %}#}
+{#                                    <option id="select{{ d.id }}" value="{{ d.id }}" class="projects-select form-label card-header text-center">{{ d.id }} - {{ d.name }}</option>#}
+{#                                {% endfor %}#}
 
-
+                            </select>
+                            <input type="submit" value="Valider" class="btn btn-primary col-3">
                         </form>
-                        <select class="projects-infos form-control2" name="projects-select" id="projects-select" >
-                            {% for d in domainNamesList %}
-                                <option id="select{{ d.id }}" value="{{ d.id }}" class="projects-select form-label card-header text-center">{{ d.id }} - {{ d.name }}</option>
-                            {% endfor %}
+                        <br>
+{#                        {% for user in userList %}#}
+{#                            <div>user.name</div>#}
+{#                        {% endFor %}#}
+                        <br>
 
-                        </select>
+
+
+
+
+
+
+
+{#                        {{ form_start(form) }}#}
+{#                        {{ form_widget(form) }}#}
+{#                        {{ form_end(form) }}#}
 
 
 
                     </div>
                     <script>
-                        var e = document.getElementById("projects-select");
-                        var value = e.value;
-                        var text = e.options[e.selectedIndex].value;
-                        console.log(text);
-                        e.addEventListener("onChange", function(){
-                            console.log(text);
-                        })
-
-
-
-
-
-
-                        var UserOption  = document.getElementById('projects-select').value;
-                        // console.log(options[UserOption-1]);
-                        console.log(UserOption);
+                        // var e = document.getElementById("projects-select");
+                        // var value = e.value;
+                        // var text = e.options[e.selectedIndex].value;
+                        // console.log(text);
+                        // e.addEventListener("onChange", function(){
+                        //     console.log(text);
+                        // })
+                        //
+                        //
+                        //
+                        //
+                        //
+                        //
+                        // var UserOption  = document.getElementById('projects-select').value;
+                        // // console.log(options[UserOption-1]);
+                        // console.log(UserOption);
 
                     </script>
 
@@ -96,15 +121,15 @@
 {#                {% for d in domainNamesList %}#}
 {#                    {% if d.id == domainList[{{ loop.index }}] %}#}
 {#                {% endfor %}#}
-                <div><span class="title2">Date de création : </span>{{ domainNamesList[1].creationDate |date ('d-m-Y')}}</div>
-                <div><span class="title2">Hébergeur : </span>{{ domainNamesList[1].host }}</div>
+{#                <div><span class="title2">Date de création : </span>{{ domainNamesList[1].creationDate |date ('d-m-Y')}}</div>#}
+{#                <div><span class="title2">Hébergeur : </span>{{ domainNamesList[1].host }}</div>#}
 
                 <br>
                 <div class="title2">Hébergeur :</div>
                 <br>
                 <div class="title2">Étape du projet :</div>
                 <br>
-                <input type="button" value="Changer l'étape" class="change btn-big btn-primary">
+                <input type="button" value="Changer l'étape" class="change btn btn-primary">
 
 
 
@@ -117,8 +142,8 @@
             <br>
             <div class="title2"><h3>Intervenant n°1</h3></div>
 
-            <div><span class="title2">Nom : </span>{{ domainNamesList[1].id }}</div>
-            <div><span class="title2">Prénom : </span>{{ domainNamesList[1].host }}</div>
+{#            <div><span class="title2">Nom : </span>{{ domainNamesList[1].id }}</div>#}
+{#            <div><span class="title2">Prénom : </span>{{ domainNamesList[1].host }}</div>#}
 
 
             <ul >

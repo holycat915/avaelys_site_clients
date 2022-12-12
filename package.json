@@ -7,12 +7,14 @@
     "webpack-notifier": "^1.15.0"
   },
   "scripts": {
+    "dev-server": "encore dev-server",
+    "dev": "encore dev",
     "watch": "webpack --watch --progress",
-    "build": "webpack --config webpack.config.js",
-    "dev": "npm run development"
+    "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
     "@symfony/webpack-encore": "^4.1.1",
+    "core-js": "^3.26.1",
     "cross-env": "^7.0.3",
     "webpack": "^5.74.0"
   }

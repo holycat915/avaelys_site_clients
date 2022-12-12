@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\DomainName;
 use App\Entity\User;
+use App\Form\ProjectProgressType;
 use App\Repository\DomainNameRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,12 +30,9 @@ class ProjectProgressController extends AbstractController
         $domainNamesList = $domainNameRepository->findAll();
 
 //        $user = $userRepository->findOneBy(['email' => $this->getUser()->getUserIdentifier()]);
-//        $user = $userRepository->findOneBy(['email' => $this->getUser()->getId()]);
-        $id = $this->getUser()->getId();
-//        dump($id);
-        $domainNamesList = $domainNameRepository->findByUser($id);
-//        $domainNamesList = $domainNameRepository->findByUser($user);
 
+        $id = $this->getUser()->getId();
+        $domainNamesList = $domainNameRepository->findByUser($id);
 
 
 
@@ -54,6 +53,7 @@ class ProjectProgressController extends AbstractController
 
         return $this->render('project_progress/project-progress.html.twig', [
             'domainNamesList' => $domainNamesList,
+//            'usersList' => $usersList,
         ]);
     }
 
@@ -84,6 +84,56 @@ class ProjectProgressController extends AbstractController
 
         return $this->render('project_progress/project-progress.html.twig', [
             'domainNamesByUser' => $domainNamesByUser,
+        ]);
+    }
+
+
+//    #[Route('/project/infos/{id}', name: 'app_project_progress_domainNamesByUser_id', methods:["GET","POST"])]
+//    public function UsersByDomainName(int $id, DomainNameRepository $domainNameRepository, Request $request): Response
+//    {
+//        $usersByDomainName = $domainNameRepository->findUsersByDomainName();
+//
+//        return $this->render('project_progress/project-progress.html.twig', [
+//            'usersByDomainName' => $usersByDomainName,
+//        ]);
+//    }
+
+    #[Route('/project/infos', name: 'app_project_progress_domainNamesByUser_id', methods:["GET","POST"])]
+    public function Liste1(DomainNameRepository $domainNameRepository, Request $request): Response
+    {
+        $domainListByUser  = $domainNameRepository->findByUser($this->getUser()->getId());
+//        dump($domainListByUser);
+//        $form = $this->createForm(ProjectProgressType::class, $domainListByUser);
+        $form = $this->createForm(ProjectProgressType::class, $domainListByUser);
+
+
+
+
+
+//        $progressStep = $this->getEntityManager()->find(DomainName::class, 1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        $usersByDomainName = $domainNameRepository->findUsersByDomainName();
+
+        return $this->render('project_progress/project-progress.html.twig', [
+//            'usersByDomainName' => $usersByDomainName,
+            'form' => $form->createView()
+
         ]);
     }
 

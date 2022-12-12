@@ -31,6 +31,9 @@ class DomainName
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'domainNames')]
     private Collection $users;
 
+    #[ORM\Column]
+    private ?int $progressStep = null;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -106,6 +109,18 @@ public function removeUser(User $user): self
     if ($this->users->removeElement($user)) {
         $user->removeDomainName($this);
     }
+
+    return $this;
+}
+
+public function getProgressStep(): ?int
+{
+    return $this->progressStep;
+}
+
+public function setProgressStep(int $progressStep): self
+{
+    $this->progressStep = $progressStep;
 
     return $this;
 }

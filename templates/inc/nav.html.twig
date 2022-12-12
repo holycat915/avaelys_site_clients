@@ -4,6 +4,7 @@
         <ul class="">
             <li><a class="topbar left" href="{{ path('app_home') }}">Accueil</a></li>
             <li><a class="topbar left" href="{{ path('app_project_progress') }}">Projet</a></li>
+            <li><a class="topbar left" href="{{ path('app_video') }}">Videos</a></li>
 
             {% if app.user %}
     {#                <li><a class="topbar-link" href="{{ path('sorties_afficher')}}">Sorties</a></li>#}
@@ -14,9 +15,9 @@
                     <li><a class="topbar left" href="{{ path('app_domain_name') }}">Création de domaine</a></li>
 
                 {% endif %}
-                <li><a class="topbar right" href="{{ path('app_logout')}}">Se déconnecter ({{ app.user.userIdentifier }})</a></li>
+                <li><a class="topbar right1" href="{{ path('app_logout')}}">Se déconnecter ({{ app.user.userIdentifier }})</a></li>
             {% else %}
-                <a class="topbar right" href="{{ path('app_login') }}">Login<span class="sr-only"></span></a>
+                <a class="topbar right1" href="{{ path('app_login') }}">Login<span class="sr-only"></span></a>
             {% endif %}
 
         </ul>

@@ -74,6 +74,24 @@ class DomainNameRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+    //     * @return UsersByDomainName[] Returns an array of DomainName objects
+    //     */
+    public function findUsersByDomainName(int $id): array
+    {
+
+
+        return $this->createQueryBuilder('d')
+//            ->andWhere('d.exampleField = :val')
+            ->innerJoin('d.users', 'user')
+            ->andWhere('d.id = :val')
+            ->setParameter('val', $id)
+            ->orderBy('d.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 //    public function findOneBySomeField($value): ?DomainName
 //    {
 //        return $this->createQueryBuilder('d')

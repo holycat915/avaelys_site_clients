@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\DomainName;
-use App\Form\DomainNameFormType;
+use App\Form\DomainNameType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,8 +16,10 @@ class DomainNameController extends AbstractController
     public function creerDomaine(Request $request, EntityManagerInterface $entityManager): Response
     {
         $domainName = new DomainName();
-        $form = $this->createForm(DomainNameFormType::class, $domainName);
+        $domainName->setProgressStep(0);
+        $form = $this->createForm(DomainNameType::class, $domainName);
         $form->handleRequest($request);
+
 
         if ($form->isSubmitted() && $form->isValid()) {
 

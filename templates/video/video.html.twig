@@ -1,0 +1,12 @@
+<div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4 align-items-stretch">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ video.title }}</h5>
+            <video controls {%  if video.thumbnail is not null  %} poster="{{ asset('upload/thumbnails/' ~ video.thumbnail)  }}" {% endif %}  class="w-100">
+                <source src="{{ asset('upload/videos/') ~ video.videoFile }}">
+            </video>
+            <p class="card-text">{{ video.description }}</p>
+            <p class="card-text"><small class="text-muted">{{ video.visibility.label }}</small></p>
+        </div>
+    </div>
+</div>
